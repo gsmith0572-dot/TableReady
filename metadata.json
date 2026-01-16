@@ -1,0 +1,7 @@
+{
+  "name": "TableReady",
+  "description": "Next-gen POS for modern restaurants.",
+  "requestFramePermissions": [
+    "microphone"
+  ]
+}
