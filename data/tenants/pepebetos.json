@@ -1,0 +1,432 @@
+{
+  "tenant": {
+    "id": "pepebetos-001",
+    "name": "Pepe Betos Mexican Kitchen & Cantina",
+    "slug": "pepebetos",
+    "owner": "Pepe Betos Management",
+    "email": "info@pepebetos.com",
+    "phone": "(318) 414-3053",
+    "address": "1102 Carter St, Vidalia, LA 71373",
+    "status": "active",
+    "mrr": 199,
+    "joinedDate": "2026-01-24",
+    "subscriptionPlan": "premium",
+    "logoUrl": "/logos/pepebetos-logo.png",
+    "branding": {
+      "primaryColor": "#D32F2F",
+      "secondaryColor": "#FFA000",
+      "accentColor": "#388E3C"
+    },
+    "hours": {
+      "sunday": "11:00 AM - 7:40 PM",
+      "monday": "11:00 AM - 8:40 PM",
+      "tuesday": "11:00 AM - 8:40 PM",
+      "wednesday": "11:00 AM - 8:40 PM",
+      "thursday": "11:00 AM - 8:40 PM",
+      "friday": "11:00 AM - 9:40 PM",
+      "saturday": "11:00 AM - 9:40 PM"
+    }
+  },
+  "menu": {
+    "categories": [
+      {
+        "id": "botanas",
+        "name": "Botanas / Shareables",
+        "items": [
+          {
+            "id": "queso-dip",
+            "name": "Queso Dip",
+            "price": 6.00,
+            "description": "Creamy cheese dip served with tortilla chips",
+            "image": "/menu/queso-dip.jpg"
+          },
+          {
+            "id": "betos-nachos",
+            "name": "Beto's Nachos",
+            "price": 12.00,
+            "description": "Loaded nachos with choice of meat, beans, cheese, jalapeños",
+            "image": "/menu/nachos.jpg"
+          },
+          {
+            "id": "street-corn",
+            "name": "Street Corn (Elote)",
+            "price": 6.00,
+            "description": "Mexican street corn with mayo, cotija cheese, chili powder",
+            "image": "/menu/elote.jpg"
+          },
+          {
+            "id": "guacamole",
+            "name": "Guacamole",
+            "price": 8.00,
+            "description": "Fresh made guacamole with chips",
+            "image": "/menu/guacamole.jpg"
+          }
+        ]
+      },
+      {
+        "id": "tacos",
+        "name": "Tacos",
+        "items": [
+          {
+            "id": "quesabirrias",
+            "name": "Quesabirrias (3)",
+            "price": 18.00,
+            "description": "Three quesabirria tacos with consomé for dipping. #1 Most Liked!",
+            "image": "/menu/quesabirrias.jpg",
+            "popular": true
+          },
+          {
+            "id": "taco-carne-asada",
+            "name": "Taco Carne Asada",
+            "price": 4.50,
+            "description": "Grilled steak taco with onions and cilantro",
+            "image": "/menu/taco-asada.jpg",
+            "popular": true
+          },
+          {
+            "id": "taco-cochinita-pibil",
+            "name": "Cochinita Pibil Tacos",
+            "price": 4.50,
+            "description": "Slow-cooked pork in citrus and achiote marinade",
+            "image": "/menu/cochinita-pibil.jpg"
+          },
+          {
+            "id": "taco-carnitas",
+            "name": "Carnitas Tacos",
+            "price": 4.50,
+            "description": "Traditional Mexican pulled pork tacos",
+            "image": "/menu/carnitas-taco.jpg"
+          },
+          {
+            "id": "birria-tacos",
+            "name": "Birria Tacos (3)",
+            "price": 16.00,
+            "description": "Three authentic birria tacos with consomé",
+            "image": "/menu/birria-tacos.jpg"
+          }
+        ]
+      },
+      {
+        "id": "from-the-grill",
+        "name": "From The Grill",
+        "items": [
+          {
+            "id": "happy-plate",
+            "name": "Happy Plate",
+            "price": 16.00,
+            "description": "Grilled steak with rice, beans, and tortillas. #2 Most Liked!",
+            "image": "/menu/happy-plate.jpg",
+            "popular": true
+          },
+          {
+            "id": "fajitas-chicken",
+            "name": "Chicken Fajitas",
+            "price": 18.00,
+            "description": "Sizzling chicken fajitas with peppers and onions",
+            "image": "/menu/fajitas-chicken.jpg"
+          },
+          {
+            "id": "fajitas-steak",
+            "name": "Steak Fajitas",
+            "price": 20.00,
+            "description": "Sizzling steak fajitas with peppers and onions",
+            "image": "/menu/fajitas-steak.jpg"
+          },
+          {
+            "id": "fajitas-shrimp",
+            "name": "Shrimp Fajitas",
+            "price": 22.00,
+            "description": "Sizzling shrimp fajitas with peppers and onions",
+            "image": "/menu/fajitas-shrimp.jpg"
+          },
+          {
+            "id": "parrillada",
+            "name": "Parrillada (For Two)",
+            "price": 45.00,
+            "description": "Mixed grill platter with steak, chicken, shrimp, chorizo - serves 2",
+            "image": "/menu/parrillada.jpg"
+          },
+          {
+            "id": "carnitas-plate",
+            "name": "Carnitas Plate",
+            "price": 16.00,
+            "description": "Traditional Mexican pulled pork with rice, beans, and tortillas",
+            "image": "/menu/carnitas-plate.jpg"
+          }
+        ]
+      },
+      {
+        "id": "seafood",
+        "name": "Seafood",
+        "items": [
+          {
+            "id": "camarones-al-ajo",
+            "name": "Camarones al Ajo",
+            "price": 18.00,
+            "description": "Garlic shrimp with rice and vegetables",
+            "image": "/menu/camarones-ajo.jpg"
+          },
+          {
+            "id": "fish-tacos",
+            "name": "Fish Tacos (3)",
+            "price": 14.00,
+            "description": "Three grilled or fried fish tacos",
+            "image": "/menu/fish-tacos.jpg"
+          },
+          {
+            "id": "shrimp-cocktail",
+            "name": "Shrimp Cocktail",
+            "price": 16.00,
+            "description": "Mexican-style shrimp cocktail",
+            "image": "/menu/shrimp-cocktail.jpg"
+          }
+        ]
+      },
+      {
+        "id": "enchiladas",
+        "name": "Enchiladas",
+        "items": [
+          {
+            "id": "enchiladas-bandera",
+            "name": "Enchiladas Bandera",
+            "price": 14.00,
+            "description": "Three enchiladas with red, white, and green sauces",
+            "image": "/menu/enchiladas-bandera.jpg"
+          },
+          {
+            "id": "enchiladas-verdes",
+            "name": "Enchiladas Verdes",
+            "price": 13.00,
+            "description": "Chicken enchiladas with green tomatillo sauce",
+            "image": "/menu/enchiladas-verdes.jpg"
+          },
+          {
+            "id": "enchiladas-rojas",
+            "name": "Enchiladas Rojas",
+            "price": 13.00,
+            "description": "Cheese enchiladas with red chile sauce",
+            "image": "/menu/enchiladas-rojas.jpg"
+          }
+        ]
+      },
+      {
+        "id": "burritos",
+        "name": "House Burritos",
+        "items": [
+          {
+            "id": "fajita-burrito",
+            "name": "Fajita Burrito",
+            "price": 14.00,
+            "description": "Large burrito with fajita-style meat and vegetables",
+            "image": "/menu/fajita-burrito.jpg"
+          },
+          {
+            "id": "chimichanga",
+            "name": "Chimichanga",
+            "price": 13.00,
+            "description": "Fried burrito with choice of meat",
+            "image": "/menu/chimichanga.jpg"
+          },
+          {
+            "id": "wet-burrito",
+            "name": "Wet Burrito",
+            "price": 14.00,
+            "description": "Burrito smothered in sauce and cheese",
+            "image": "/menu/wet-burrito.jpg"
+          }
+        ]
+      },
+      {
+        "id": "quesadillas",
+        "name": "Quesadillas",
+        "items": [
+          {
+            "id": "fajita-quesadilla",
+            "name": "Fajita Quesadilla",
+            "price": 16.00,
+            "description": "Large quesadilla with fajita-style meat and peppers",
+            "image": "/menu/fajita-quesadilla.jpg"
+          },
+          {
+            "id": "cheese-quesadilla",
+            "name": "Cheese Quesadilla",
+            "price": 10.00,
+            "description": "Classic cheese quesadilla",
+            "image": "/menu/cheese-quesadilla.jpg"
+          }
+        ]
+      },
+      {
+        "id": "specialties",
+        "name": "Specialties",
+        "items": [
+          {
+            "id": "chile-poblano",
+            "name": "Chile Poblano",
+            "price": 15.00,
+            "description": "Stuffed poblano pepper with cheese (add shrimp for $4)",
+            "image": "/menu/chile-poblano.jpg"
+          },
+          {
+            "id": "torta-loca",
+            "name": "Torta Loca",
+            "price": 12.00,
+            "description": "Huge Mexican sandwich with choice of meat",
+            "image": "/menu/torta.jpg"
+          },
+          {
+            "id": "fajita-taco-salad",
+            "name": "Fajita Taco Salad",
+            "price": 13.00,
+            "description": "Crispy tortilla bowl with fajita meat and toppings",
+            "image": "/menu/taco-salad.jpg"
+          }
+        ]
+      },
+      {
+        "id": "kids",
+        "name": "For The Little Ones",
+        "items": [
+          {
+            "id": "kids-taco",
+            "name": "Kids Taco Plate",
+            "price": 7.00,
+            "description": "One taco with rice and beans",
+            "image": "/menu/kids-taco.jpg"
+          },
+          {
+            "id": "kids-quesadilla",
+            "name": "Kids Quesadilla",
+            "price": 7.00,
+            "description": "Cheese quesadilla with rice or fries",
+            "image": "/menu/kids-quesadilla.jpg"
+          },
+          {
+            "id": "kids-chicken-tenders",
+            "name": "Chicken Tenders",
+            "price": 7.00,
+            "description": "Chicken tenders with fries",
+            "image": "/menu/kids-tenders.jpg"
+          }
+        ]
+      },
+      {
+        "id": "sides",
+        "name": "Side Orders",
+        "items": [
+          {
+            "id": "rice",
+            "name": "Mexican Rice",
+            "price": 3.00,
+            "description": "Traditional Mexican rice",
+            "image": "/menu/rice.jpg"
+          },
+          {
+            "id": "beans",
+            "name": "Refried Beans",
+            "price": 3.00,
+            "description": "Creamy refried beans",
+            "image": "/menu/beans.jpg"
+          },
+          {
+            "id": "french-fries",
+            "name": "French Fries",
+            "price": 3.00,
+            "description": "Crispy french fries",
+            "image": "/menu/fries.jpg"
+          },
+          {
+            "id": "tortillas",
+            "name": "Tortillas (3)",
+            "price": 1.50,
+            "description": "Flour or corn tortillas",
+            "image": "/menu/tortillas.jpg"
+          }
+        ]
+      },
+      {
+        "id": "desserts",
+        "name": "Desserts",
+        "description": "All of our desserts are homemade, with love",
+        "items": [
+          {
+            "id": "nutella-chimichanga",
+            "name": "Nutella Banana Cheesecake Chimichanga",
+            "price": 8.00,
+            "description": "Fried dessert chimichanga with Nutella, banana, and cheesecake",
+            "image": "/menu/dessert-chimichanga.jpg"
+          },
+          {
+            "id": "flan",
+            "name": "Flan",
+            "price": 6.00,
+            "description": "Traditional Mexican caramel custard",
+            "image": "/menu/flan.jpg"
+          },
+          {
+            "id": "churros",
+            "name": "Churros",
+            "price": 6.00,
+            "description": "Fried dough pastries with cinnamon sugar",
+            "image": "/menu/churros.jpg"
+          },
+          {
+            "id": "sopapillas",
+            "name": "Sopapillas",
+            "price": 5.00,
+            "description": "Fried pastries with honey and cinnamon",
+            "image": "/menu/sopapillas.jpg"
+          }
+        ]
+      },
+      {
+        "id": "drinks",
+        "name": "Beverages",
+        "items": [
+          {
+            "id": "margarita-rocks",
+            "name": "Margarita on the Rocks",
+            "price": 8.00,
+            "description": "Classic margarita with fresh mixers",
+            "image": "/menu/margarita.jpg"
+          },
+          {
+            "id": "margarita-frozen",
+            "name": "Frozen Margarita",
+            "price": 8.00,
+            "description": "Frozen margarita in various flavors",
+            "image": "/menu/frozen-margarita.jpg"
+          },
+          {
+            "id": "modelo-draft",
+            "name": "Modelo Draft",
+            "price": 5.00,
+            "description": "Icy Modelo draft beer",
+            "image": "/menu/modelo.jpg"
+          },
+          {
+            "id": "mexican-soda",
+            "name": "Mexican Soda",
+            "price": 3.00,
+            "description": "Jarritos, Coca-Cola Mexicana, etc.",
+            "image": "/menu/jarritos.jpg"
+          },
+          {
+            "id": "horchata",
+            "name": "Horchata",
+            "price": 3.50,
+            "description": "Traditional rice milk drink with cinnamon",
+            "image": "/menu/horchata.jpg"
+          },
+          {
+            "id": "fountain-drink",
+            "name": "Fountain Drink",
+            "price": 2.50,
+            "description": "Coca-Cola products",
+            "image": "/menu/fountain.jpg"
+          }
+        ]
+      }
+    ]
+  }
+}
