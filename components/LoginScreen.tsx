@@ -26,11 +26,11 @@ export const LoginScreen: React.FC = () => {
 
             <div className="w-full max-w-md bg-card-dark border border-white/10 rounded-3xl p-8 shadow-2xl relative z-10">
                 <div className="text-center mb-8 flex flex-col items-center">
-                    {/* TableReady Logo */}
+                    {/* TableTech Logo */}
                     {/* INSTRUCCIÓN: Guarda tu imagen como 'logo.png' en la carpeta public/raíz */}
                     <img 
                         src="/logo.png" 
-                        alt="TableReady" 
+                        alt="TableTech" 
                         className="h-32 w-auto object-contain mb-4 mx-auto"
                         onError={(e) => {
                             // Fallback visual si no se encuentra la imagen
@@ -41,7 +41,7 @@ export const LoginScreen: React.FC = () => {
                     />
                     
                     {/* Fallback por si la imagen no carga */}
-                    <h1 id="logo-fallback" className="text-3xl font-bold text-white tracking-tight hidden mb-2">TableReady</h1>
+                    <h1 id="logo-fallback" className="text-3xl font-bold text-white tracking-tight hidden mb-2">TableTech</h1>
                     
                     <p className="text-white/50 text-sm">Next-gen POS Platform</p>
                 </div>
@@ -90,7 +90,7 @@ export const LoginScreen: React.FC = () => {
                 </form>
 
                 <div className="mt-6 pt-6 border-t border-white/5 text-center">
-                    <p className="text-xs text-white/30">Protected by TableReady SaaS &copy; 2025</p>
+                    <p className="text-xs text-white/30">Protected by TableTech SaaS &copy; 2025</p>
                 </div>
             </div>
         </div>

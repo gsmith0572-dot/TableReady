@@ -39,7 +39,7 @@ export const AdminDashboard: React.FC = () => {
                     <div className="size-8 rounded-lg bg-primary flex items-center justify-center">
                         <span className="material-symbols-outlined text-white text-lg">admin_panel_settings</span>
                     </div>
-                    <h1 className="text-lg font-bold">TableReady <span className="text-white/40 font-normal">Admin</span></h1>
+                    <h1 className="text-lg font-bold">TableTech <span className="text-white/40 font-normal">Admin</span></h1>
                 </div>
                 <div className="flex items-center gap-4">
                     <button onClick={() => navigate('/')} className="text-sm text-white/60 hover:text-white transition-colors">Log Out</button>

@@ -40,7 +40,7 @@ export const DashboardScreen: React.FC = () => {
                                     className="h-6 w-auto object-contain object-left mb-0.5"
                                 />
                             ) : (
-                                <span className="text-[10px] font-bold text-primary uppercase tracking-wide">TableReady</span>
+                                <span className="text-[10px] font-bold text-primary uppercase tracking-wide">TableTech</span>
                             )}
                             
                             <h2 className="text-slate-900 dark:text-white text-lg font-bold leading-none">Hi, Sarah</h2>
