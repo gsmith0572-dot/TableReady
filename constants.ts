@@ -24,8 +24,8 @@ export const SPICE_LEVEL: MenuModifier = {
     options: [
         { id: 'mild', name: 'Mild' },
         { id: 'medium', name: 'Medium' },
-        { id: 'hot', name: 'Hot' },
-        { id: 'extra-hot', name: 'Extra Hot' }
+        { id: 'hot', name: 'Hot 🌶️' },
+        { id: 'extra-hot', name: 'Extra Hot 🌶️🌶️' }
     ]
 };
 
@@ -35,8 +35,8 @@ export const TORTILLA_TYPE: MenuModifier = {
     required: false,
     multiSelect: false,
     options: [
-        { id: 'flour', name: 'Flour (Harina)' },
-        { id: 'corn', name: 'Corn (Maíz)' }
+        { id: 'corn', name: 'Corn (Maíz)' },
+        { id: 'flour', name: 'Flour (Harina)' }
     ]
 };
 
@@ -46,10 +46,25 @@ export const PROTEIN_CHOICE: MenuModifier = {
     required: true,
     multiSelect: false,
     options: [
+        { id: 'ground-beef', name: 'Ground Beef' },
+        { id: 'shredded-chicken', name: 'Shredded Chicken' },
+        { id: 'grilled-chicken', name: 'Grilled Chicken', priceModifier: 2.00 },
+        { id: 'steak', name: 'Steak', priceModifier: 3.00 },
+        { id: 'shrimp', name: 'Shrimp', priceModifier: 4.00 },
+        { id: 'carnitas', name: 'Carnitas/Pastor', priceModifier: 1.00 }
+    ]
+};
+
+export const MEAT_CHOICE_FAJITA: MenuModifier = {
+    id: 'fajita-meat',
+    name: 'Choose Your Meat',
+    required: true,
+    multiSelect: false,
+    options: [
         { id: 'chicken', name: 'Chicken' },
         { id: 'steak', name: 'Steak', priceModifier: 2.00 },
-        { id: 'carnitas', name: 'Carnitas (Pork)' },
-        { id: 'ground-beef', name: 'Ground Beef' }
+        { id: 'shrimp', name: 'Shrimp', priceModifier: 4.00 },
+        { id: 'trio', name: 'Trio (Chicken/Steak/Shrimp)', priceModifier: 6.00 }
     ]
 };
 
@@ -61,7 +76,9 @@ export const REMOVE_ITEMS: MenuModifier = {
     options: [
         { id: 'no-onions', name: 'No Onions' },
         { id: 'no-cilantro', name: 'No Cilantro' },
-        { id: 'no-tomatoes', name: 'No Tomatoes' }
+        { id: 'no-tomatoes', name: 'No Tomatoes' },
+        { id: 'no-lettuce', name: 'No Lettuce' },
+        { id: 'no-cheese', name: 'No Cheese' }
     ]
 };
 
@@ -72,12 +89,13 @@ export const EXTRAS: MenuModifier = {
     multiSelect: true,
     options: [
         { id: 'extra-cheese', name: 'Extra Cheese', priceModifier: 1.50 },
-        { id: 'guacamole', name: 'Add Guacamole', priceModifier: 2.00 }
+        { id: 'guacamole', name: 'Add Guacamole', priceModifier: 2.00 },
+        { id: 'sour-cream', name: 'Add Sour Cream', priceModifier: 0.50 }
     ]
 };
 
-export const SIDES: MenuModifier = {
-    id: 'sides',
+export const SIDE_CHOICE: MenuModifier = {
+    id: 'side-choice',
     name: 'Choose Your Side',
     required: true,
     multiSelect: false,
@@ -87,92 +105,185 @@ export const SIDES: MenuModifier = {
     ]
 };
 
-// ==================== PEPEBETOS MENU ====================
+export const WING_SAUCE: MenuModifier = {
+    id: 'wing-sauce',
+    name: 'Wing Sauce',
+    required: true,
+    multiSelect: false,
+    options: [
+        { id: 'buffalo', name: 'Classic Buffalo' },
+        { id: 'bbq', name: 'BBQ' },
+        { id: 'sweet-chili', name: 'Asian Sweet Chili' },
+        { id: 'mango-habanero', name: 'Mango Habanero' }
+    ]
+};
+
+// ==================== COMPLETE PEPEBETOS MENU ====================
 
 export const PEPEBETOS_MENU: MenuItem[] = [
-  // Botanas / Shareables
-  { id: '1', name: 'Queso Dip', price: 6.00, category: 'Botanas', image: '🧀', modifiers: [SPICE_LEVEL] },
-  { id: '2', name: "Beto's Nachos", price: 12.00, category: 'Botanas', image: '🌮', modifiers: [PROTEIN_CHOICE, EXTRAS, REMOVE_ITEMS] },
-  { id: '3', name: 'Street Corn (Elote)', price: 6.00, category: 'Botanas', image: '🌽', modifiers: [SPICE_LEVEL] },
-  { id: '4', name: 'Guacamole', price: 8.00, category: 'Botanas', image: '🥑', modifiers: [SPICE_LEVEL] },
-  
-  // Tacos
-  { id: '5', name: 'Quesabirrias (3)', price: 18.00, category: 'Tacos', image: '🌮', description: '#1 Most Liked!', modifiers: [TORTILLA_TYPE, SPICE_LEVEL, REMOVE_ITEMS, EXTRAS] },
-  { id: '6', name: 'Taco Carne Asada', price: 4.50, category: 'Tacos', image: '🌮', modifiers: [MEAT_TEMPERATURE, TORTILLA_TYPE, REMOVE_ITEMS, EXTRAS] },
-  { id: '7', name: 'Cochinita Pibil Tacos', price: 4.50, category: 'Tacos', image: '🌮', modifiers: [TORTILLA_TYPE, REMOVE_ITEMS, EXTRAS] },
-  { id: '8', name: 'Carnitas Tacos', price: 4.50, category: 'Tacos', image: '🌮', modifiers: [TORTILLA_TYPE, REMOVE_ITEMS, EXTRAS] },
-  { id: '9', name: 'Birria Tacos (3)', price: 16.00, category: 'Tacos', image: '🌮', modifiers: [TORTILLA_TYPE, SPICE_LEVEL, REMOVE_ITEMS, EXTRAS] },
-  
-  // From The Grill
-  { id: '10', name: 'Happy Plate', price: 16.00, category: 'From The Grill', image: '🥩', description: '#2 Most Liked!', modifiers: [MEAT_TEMPERATURE, SIDES, TORTILLA_TYPE] },
-  { id: '11', name: 'Chicken Fajitas', price: 18.00, category: 'From The Grill', image: '🍗', modifiers: [SIDES, TORTILLA_TYPE, SPICE_LEVEL, REMOVE_ITEMS, EXTRAS] },
-  { id: '12', name: 'Steak Fajitas', price: 20.00, category: 'From The Grill', image: '🥩', modifiers: [MEAT_TEMPERATURE, SIDES, TORTILLA_TYPE, SPICE_LEVEL, REMOVE_ITEMS, EXTRAS] },
-  { id: '13', name: 'Shrimp Fajitas', price: 22.00, category: 'From The Grill', image: '🍤', modifiers: [SIDES, TORTILLA_TYPE, SPICE_LEVEL, REMOVE_ITEMS, EXTRAS] },
-  { id: '14', name: 'Parrillada (For Two)', price: 45.00, category: 'From The Grill', image: '🍖', modifiers: [MEAT_TEMPERATURE, SIDES, TORTILLA_TYPE, SPICE_LEVEL] },
-  { id: '15', name: 'Carnitas Plate', price: 16.00, category: 'From The Grill', image: '🍖', modifiers: [SIDES, TORTILLA_TYPE] },
-  
-  // Seafood
-  { id: '16', name: 'Camarones al Ajo', price: 18.00, category: 'Seafood', image: '🍤', modifiers: [SPICE_LEVEL, SIDES] },
-  { id: '17', name: 'Fish Tacos (3)', price: 14.00, category: 'Seafood', image: '🐟', modifiers: [TORTILLA_TYPE, REMOVE_ITEMS, EXTRAS] },
-  { id: '18', name: 'Camarones Diabla', price: 18.00, category: 'Seafood', image: '🍤', modifiers: [SPICE_LEVEL, SIDES] },
-  
-  // Enchiladas
-  { id: '19', name: 'Enchiladas Bandera', price: 14.00, category: 'Enchiladas', image: '🫔', modifiers: [PROTEIN_CHOICE, SIDES, SPICE_LEVEL] },
-  { id: '20', name: 'Enchiladas Verdes', price: 13.00, category: 'Enchiladas', image: '🫔', modifiers: [SIDES, SPICE_LEVEL] },
-  { id: '21', name: 'Enchiladas Rojas', price: 13.00, category: 'Enchiladas', image: '🫔', modifiers: [PROTEIN_CHOICE, SIDES, SPICE_LEVEL] },
-  
-  // Burritos
-  { id: '22', name: 'Fajita Burrito', price: 14.00, category: 'Burritos', image: '🌯', modifiers: [PROTEIN_CHOICE, SPICE_LEVEL, REMOVE_ITEMS, EXTRAS] },
-  { id: '23', name: 'Chimichanga', price: 13.00, category: 'Burritos', image: '🌯', modifiers: [PROTEIN_CHOICE, SIDES, REMOVE_ITEMS, EXTRAS] },
-  { id: '24', name: 'California Burrito', price: 15.00, category: 'Burritos', image: '🌯', modifiers: [PROTEIN_CHOICE, SPICE_LEVEL, REMOVE_ITEMS, EXTRAS] },
-  
-  // Quesadillas
-  { id: '25', name: 'Fajita Quesadilla', price: 16.00, category: 'Quesadillas', image: '🫓', modifiers: [PROTEIN_CHOICE, SPICE_LEVEL, REMOVE_ITEMS, EXTRAS] },
-  { id: '26', name: 'Cheese Quesadilla', price: 10.00, category: 'Quesadillas', image: '🫓', modifiers: [EXTRAS] },
-  
-  // Specialties
-  { id: '27', name: 'Chile Poblano', price: 15.00, category: 'Specialties', image: '🌶️', modifiers: [SIDES, SPICE_LEVEL] },
-  { id: '28', name: 'Torta Loca', price: 12.00, category: 'Specialties', image: '🥪', modifiers: [PROTEIN_CHOICE, REMOVE_ITEMS, EXTRAS] },
-  { id: '29', name: 'Flautas (3)', price: 12.00, category: 'Specialties', image: '🌮', modifiers: [PROTEIN_CHOICE, SIDES] },
-  
-  // Kids Menu
-  { id: '30', name: 'Kids Taco Plate', price: 7.00, category: 'Kids', image: '🌮', modifiers: [PROTEIN_CHOICE, SIDES] },
-  { id: '31', name: 'Kids Quesadilla', price: 7.00, category: 'Kids', image: '🫓', modifiers: [SIDES] },
-  { id: '32', name: 'Chicken Tenders', price: 7.00, category: 'Kids', image: '🍗' },
-  
-  // Sides
-  { id: '33', name: 'Mexican Rice', price: 3.00, category: 'Sides', image: '🍚' },
-  { id: '34', name: 'Refried Beans', price: 3.00, category: 'Sides', image: '🫘' },
-  { id: '35', name: 'French Fries', price: 3.00, category: 'Sides', image: '🍟' },
-  { id: '36', name: 'Tortillas (4)', price: 1.50, category: 'Sides', image: '🫓', modifiers: [TORTILLA_TYPE] },
-  
-  // Desserts
-  { id: '37', name: 'Nutella Banana Cheesecake Chimichanga', price: 8.00, category: 'Desserts', image: '🍰' },
-  { id: '38', name: 'Flan', price: 6.00, category: 'Desserts', image: '🍮' },
-  { id: '39', name: 'Churros', price: 6.00, category: 'Desserts', image: '🍩' },
-  { id: '40', name: 'Sopapillas', price: 6.00, category: 'Desserts', image: '🍩' },
-  
-  // Beverages
-  { id: '41', name: 'Margarita on the Rocks', price: 8.00, category: 'Drinks', image: '🍹' },
-  { id: '42', name: 'Frozen Margarita', price: 8.00, category: 'Drinks', image: '🍹' },
-  { id: '43', name: 'Modelo Draft', price: 5.00, category: 'Drinks', image: '🍺' },
-  { id: '44', name: 'Mexican Soda', price: 3.00, category: 'Drinks', image: '🥤' },
-  { id: '45', name: 'Horchata', price: 3.50, category: 'Drinks', image: '🥛' },
-  { id: '46', name: 'Fountain Drink', price: 2.50, category: 'Drinks', image: '🥤' },
+  // APPETIZERS / BOTANAS
+  { id: '1', name: 'Queso Dip', price: 6.00, category: 'Appetizers', image: '🧀', modifiers: [SPICE_LEVEL] },
+  { id: '2', name: 'Guacamole Dip', price: 6.00, category: 'Appetizers', image: '🥑', modifiers: [SPICE_LEVEL] },
+  { id: '3', name: "Beto's Nachos", price: 12.00, category: 'Appetizers', image: '🌮', modifiers: [PROTEIN_CHOICE, EXTRAS, REMOVE_ITEMS] },
+  { id: '4', name: 'Street Corn (Elote)', price: 5.00, category: 'Appetizers', image: '🌽', modifiers: [SPICE_LEVEL] },
+  { id: '5', name: 'Shrimp Basket', price: 15.00, category: 'Appetizers', image: '🍤' },
+  { id: '6', name: 'Queso Fundido', price: 10.00, category: 'Appetizers', image: '🧀', modifiers: [PROTEIN_CHOICE] },
+  { id: '7', name: 'Beans & gueso', price: 14.00, category: 'Appetizers', image: '🫘' },
+  { id: '8', name: 'Chicken Wings (6 pcs)', price: 19.00, category: 'Appetizers', image: '🍗', modifiers: [WING_SAUCE] },
+  { id: '9', name: 'Chicken Wings (12 pcs)', price: 19.00, category: 'Appetizers', image: '🍗', modifiers: [WING_SAUCE] },
+  { id: '10', name: 'Sticky Fingerz', price: 13.00, category: 'Appetizers', image: '🍗', modifiers: [WING_SAUCE] },
+  { id: '11', name: "Pepe's Sampler", price: 18.00, category: 'Appetizers', image: '🍽️', modifiers: [WING_SAUCE] },
+
+  // SOUPS
+  { id: '20', name: 'Chicken Tortilla Soup', price: 7.00, category: 'Soups', image: '🍲' },
+  { id: '21', name: 'Charro Bean Soup', price: 4.00, category: 'Soups', image: '🫘' },
+
+  // SALADS
+  { id: '30', name: 'Strawberry Walnut Salad', price: 18.00, category: 'Salads', image: '🥗', modifiers: [PROTEIN_CHOICE] },
+  { id: '31', name: 'Mexican Avocado Salad', price: 18.00, category: 'Salads', image: '🥑', modifiers: [PROTEIN_CHOICE] },
+  { id: '32', name: 'Caesar Salad', price: 10.00, category: 'Salads', image: '🥗', modifiers: [PROTEIN_CHOICE] },
+  { id: '33', name: 'Fajita Taco Salad', price: 15.00, category: 'Salads', image: '🥗', modifiers: [PROTEIN_CHOICE] },
+
+  // TACOS
+  { id: '40', name: 'Tacos Mexicanos (3)', price: 16.00, category: 'Tacos', image: '🌮', modifiers: [PROTEIN_CHOICE, TORTILLA_TYPE] },
+  { id: '41', name: 'Gringo Tacos (2)', price: 13.00, category: 'Tacos', image: '🌮', modifiers: [PROTEIN_CHOICE] },
+  { id: '42', name: 'Quesabirria (3)', price: 17.00, category: 'Tacos', image: '🌮', description: '⭐ Favorite!' },
+  { id: '43', name: 'Elote Tacos (3)', price: 18.00, category: 'Tacos', image: '🌮', modifiers: [PROTEIN_CHOICE, TORTILLA_TYPE] },
+  { id: '44', name: 'Fried Shrimp/Fish Tacos (3)', price: 17.00, category: 'Tacos', image: '🐟' },
+
+  // FROM THE GRILL
+  { id: '50', name: 'Special Fajitas (For 2)', price: 42.00, category: 'From The Grill', image: '🥩', modifiers: [MEAT_CHOICE_FAJITA, SPICE_LEVEL, TORTILLA_TYPE] },
+  { id: '51', name: 'Fajitas', price: 20.00, category: 'From The Grill', image: '🥩', modifiers: [MEAT_CHOICE_FAJITA, SPICE_LEVEL, TORTILLA_TYPE] },
+  { id: '52', name: 'Fajitas al Pastor', price: 20.00, category: 'From The Grill', image: '🥩', modifiers: [SPICE_LEVEL, TORTILLA_TYPE] },
+  { id: '53', name: 'Potato Fajita', price: 22.00, category: 'From The Grill', image: '🥔', modifiers: [MEAT_CHOICE_FAJITA, SPICE_LEVEL] },
+  { id: '54', name: 'Carne Asado', price: 24.00, category: 'From The Grill', image: '🥩', modifiers: [MEAT_TEMPERATURE, TORTILLA_TYPE] },
+  { id: '55', name: 'Bistec a la Mexicana', price: 19.00, category: 'From The Grill', image: '🥩', modifiers: [SPICE_LEVEL, TORTILLA_TYPE] },
+  { id: '56', name: 'Pollo Feliz', price: 19.00, category: 'From The Grill', image: '🍗', modifiers: [SPICE_LEVEL, TORTILLA_TYPE] },
+  { id: '57', name: "Beto's Burger", price: 18.00, category: 'From The Grill', image: '🍔' },
+
+  // SEAFOOD
+  { id: '60', name: 'Camarones al Mojo de Ajo', price: 22.00, category: 'Seafood', image: '🍤', modifiers: [SPICE_LEVEL] },
+  { id: '61', name: 'Camarones a la Diabla', price: 22.00, category: 'Seafood', image: '🍤', modifiers: [SPICE_LEVEL] },
+  { id: '62', name: 'Mojarra (Whole Fried Fish)', price: 22.00, category: 'Seafood', image: '🐟' },
+  { id: '63', name: 'Coctel de Camaron', price: 20.00, category: 'Seafood', image: '🍤' },
+  { id: '64', name: 'Fried Fish & Shrimp Platter', price: 24.00, category: 'Seafood', image: '🐟' },
+
+  // HOUSE SPECIALTIES
+  { id: '70', name: 'Happy Plate', price: 16.00, category: 'Specialties', image: '🥩', description: '⭐ Favorite!', modifiers: [PROTEIN_CHOICE, SIDE_CHOICE, TORTILLA_TYPE] },
+  { id: '71', name: 'Fajita Quesadilla', price: 17.00, category: 'Specialties', image: '🫓', modifiers: [MEAT_CHOICE_FAJITA] },
+  { id: '72', name: 'Torta Loca (Mexican Po-Boy)', price: 12.00, category: 'Specialties', image: '🥪', modifiers: [PROTEIN_CHOICE] },
+  { id: '73', name: 'Carnitas Dinner', price: 18.00, category: 'Specialties', image: '🍖', modifiers: [TORTILLA_TYPE] },
+  { id: '74', name: 'La Gringa', price: 18.00, category: 'Specialties', image: '🌮', modifiers: [PROTEIN_CHOICE] },
+  { id: '75', name: 'Tamale Dinner', price: 17.00, category: 'Specialties', image: '🫔' },
+  { id: '76', name: 'Chile Poblano Dinner', price: 19.00, category: 'Specialties', image: '🌶️', modifiers: [SPICE_LEVEL] },
+  { id: '77', name: 'Chimichanga', price: 18.00, category: 'Specialties', image: '🌯', modifiers: [PROTEIN_CHOICE, SIDE_CHOICE] },
+
+  // ENCHILADAS
+  { id: '80', name: 'Enchilada Supreme', price: 16.00, category: 'Enchiladas', image: '🫔', modifiers: [SIDE_CHOICE] },
+  { id: '81', name: 'Enchiladas Suizas', price: 15.00, category: 'Enchiladas', image: '🫔', modifiers: [SIDE_CHOICE] },
+  { id: '82', name: 'Enchiladas Bandera', price: 17.00, category: 'Enchiladas', image: '🫔', modifiers: [PROTEIN_CHOICE, SIDE_CHOICE] },
+  { id: '83', name: 'Enchiladas Dinner', price: 14.00, category: 'Enchiladas', image: '🫔', modifiers: [PROTEIN_CHOICE, SIDE_CHOICE] },
+
+  // VEGETARIAN
+  { id: '90', name: 'Veggie Fajitas', price: 18.00, category: 'Vegetarian', image: '🥗', modifiers: [TORTILLA_TYPE] },
+  { id: '91', name: 'Veggie Quesadillas', price: 17.00, category: 'Vegetarian', image: '🫓' },
+  { id: '92', name: 'Cheese Enchiladas', price: 15.00, category: 'Vegetarian', image: '🫔', modifiers: [SIDE_CHOICE] },
+  { id: '93', name: 'Veggie Combo', price: 14.00, category: 'Vegetarian', image: '🌯', modifiers: [SIDE_CHOICE] },
+
+  // BURRITOS
+  { id: '100', name: 'Burrito Supreme', price: 15.00, category: 'Burritos', image: '🌯', modifiers: [PROTEIN_CHOICE] },
+  { id: '101', name: "Chonch's Burrito", price: 14.00, category: 'Burritos', image: '🌯' },
+  { id: '102', name: 'Burrito Texano', price: 19.00, category: 'Burritos', image: '🌯', modifiers: [PROTEIN_CHOICE] },
+  { id: '103', name: "Beto's Burrito", price: 16.00, category: 'Burritos', image: '🌯', modifiers: [PROTEIN_CHOICE] },
+
+  // LUNCH SPECIALS
+  { id: '110', name: 'Huevos al gusto', price: 12.00, category: 'Lunch', image: '🍳', modifiers: [PROTEIN_CHOICE] },
+  { id: '111', name: 'Chilaquiles', price: 15.00, category: 'Lunch', image: '🌮', modifiers: [PROTEIN_CHOICE, SPICE_LEVEL] },
+  { id: '112', name: 'Fajita Taco Salad', price: 13.00, category: 'Lunch', image: '🥗', modifiers: [PROTEIN_CHOICE] },
+  { id: '113', name: 'Chorizo Burritos', price: 12.00, category: 'Lunch', image: '🌯' },
+  { id: '114', name: 'Quesabirrias', price: 14.00, category: 'Lunch', image: '🌮' },
+  { id: '115', name: 'Tacos Mexicanos', price: 12.00, category: 'Lunch', image: '🌮', modifiers: [PROTEIN_CHOICE, TORTILLA_TYPE] },
+  { id: '116', name: 'Happy Plate', price: 13.00, category: 'Lunch', image: '🥩', modifiers: [PROTEIN_CHOICE, SIDE_CHOICE] },
+  { id: '117', name: 'Gringo Tacos', price: 10.00, category: 'Lunch', image: '🌮', modifiers: [PROTEIN_CHOICE] },
+  { id: '118', name: 'Quesadilla', price: 12.00, category: 'Lunch', image: '🫓', modifiers: [PROTEIN_CHOICE] },
+  { id: '119', name: 'Fajita Quesadilla', price: 14.00, category: 'Lunch', image: '🫓', modifiers: [MEAT_CHOICE_FAJITA] },
+  { id: '120', name: 'Enchiladas', price: 11.00, category: 'Lunch', image: '🫔', modifiers: [PROTEIN_CHOICE] },
+  { id: '121', name: 'Chimichanga', price: 12.00, category: 'Lunch', image: '🌯', modifiers: [PROTEIN_CHOICE] },
+  { id: '122', name: "Beto's Burger", price: 14.00, category: 'Lunch', image: '🍔' },
+  { id: '123', name: 'Burrito Supreme', price: 11.00, category: 'Lunch', image: '🌯', modifiers: [PROTEIN_CHOICE] },
+  { id: '124', name: "Chonch's Burrito", price: 11.00, category: 'Lunch', image: '🌯' },
+  { id: '125', name: 'Pollo Feliz', price: 14.00, category: 'Lunch', image: '🍗', modifiers: [SPICE_LEVEL] },
+  { id: '126', name: 'Fajitas', price: 17.00, category: 'Lunch', image: '🥩', modifiers: [MEAT_CHOICE_FAJITA, SPICE_LEVEL, TORTILLA_TYPE] },
+
+  // KIDS MENU
+  { id: '130', name: 'Kids Fruit Cup', price: 7.00, category: 'Kids', image: '🍓', modifiers: [SIDE_CHOICE] },
+  { id: '131', name: 'Kids Cheese Burger', price: 7.00, category: 'Kids', image: '🍔', modifiers: [SIDE_CHOICE] },
+  { id: '132', name: 'Kids Chicken Tenders', price: 7.00, category: 'Kids', image: '🍗', modifiers: [SIDE_CHOICE] },
+  { id: '133', name: 'Kids Quesadilla Plate', price: 7.00, category: 'Kids', image: '🫓', modifiers: [PROTEIN_CHOICE, SIDE_CHOICE] },
+  { id: '134', name: 'Kids Enchilada Plate', price: 7.00, category: 'Kids', image: '🫔', modifiers: [SIDE_CHOICE] },
+  { id: '135', name: 'Kids Burrito Plate', price: 7.00, category: 'Kids', image: '🌯', modifiers: [PROTEIN_CHOICE, SIDE_CHOICE] },
+  { id: '136', name: 'Kids Taco Plate', price: 7.00, category: 'Kids', image: '🌮', modifiers: [PROTEIN_CHOICE, SIDE_CHOICE] },
+
+  // A LA CARTA
+  { id: '140', name: 'Taco (Single)', price: 3.00, category: 'A La Carta', image: '🌮', modifiers: [PROTEIN_CHOICE, TORTILLA_TYPE] },
+  { id: '141', name: 'Enchilada (Single)', price: 3.00, category: 'A La Carta', image: '🫔', modifiers: [PROTEIN_CHOICE] },
+  { id: '142', name: 'Burrito (Single)', price: 7.00, category: 'A La Carta', image: '🌯', modifiers: [PROTEIN_CHOICE] },
+  { id: '143', name: 'Quesadilla (Single)', price: 7.00, category: 'A La Carta', image: '🫓', modifiers: [PROTEIN_CHOICE] },
+  { id: '144', name: 'Chimichanga (Single)', price: 7.00, category: 'A La Carta', image: '🌯', modifiers: [PROTEIN_CHOICE] },
+  { id: '145', name: 'Chile Relleno', price: 5.00, category: 'A La Carta', image: '🌶️', modifiers: [PROTEIN_CHOICE] },
+  { id: '146', name: 'Flauta (Single)', price: 5.00, category: 'A La Carta', image: '🌮', modifiers: [PROTEIN_CHOICE] },
+  { id: '147', name: 'Pork Tamal', price: 4.00, category: 'A La Carta', image: '🫔' },
+
+  // EXTRAS / SIDES
+  { id: '150', name: 'Mexican Rice', price: 3.00, category: 'Extras', image: '🍚' },
+  { id: '151', name: 'Beans', price: 3.00, category: 'Extras', image: '🫘' },
+  { id: '152', name: 'Tortillas', price: 2.00, category: 'Extras', image: '🫓', modifiers: [TORTILLA_TYPE] },
+  { id: '153', name: 'French Fries', price: 4.00, category: 'Extras', image: '🍟' },
+  { id: '154', name: 'House/Caesar Salad', price: 5.00, category: 'Extras', image: '🥗' },
+  { id: '155', name: 'Guacamole Salad', price: 5.00, category: 'Extras', image: '🥑' },
+  { id: '156', name: 'Grilled Veggies', price: 4.00, category: 'Extras', image: '🥗' },
+  { id: '157', name: 'Queso Dip', price: 2.00, category: 'Extras', image: '🧀' },
+  { id: '158', name: 'Guacamole', price: 3.00, category: 'Extras', image: '🥑' },
+  { id: '159', name: 'Sour Cream', price: 2.00, category: 'Extras', image: '🥛' },
+  { id: '160', name: 'Shredded Cheese', price: 2.00, category: 'Extras', image: '🧀' },
+  { id: '161', name: 'Homemade Salsa', price: 3.00, category: 'Extras', image: '🌶️' },
+
+  // DESSERTS
+  { id: '170', name: 'Nutella Banana Chimichanga', price: 6.00, category: 'Desserts', image: '🍰' },
+  { id: '171', name: 'Sopapillas', price: 6.00, category: 'Desserts', image: '🍩' },
+  { id: '172', name: 'Fried Ice Cream', price: 6.00, category: 'Desserts', image: '🍨' },
+  { id: '173', name: 'Churros', price: 6.00, category: 'Desserts', image: '🍩' },
+  { id: '174', name: 'Cheesecake', price: 6.00, category: 'Desserts', image: '🍰' },
+
+  // DRINKS
+  { id: '180', name: 'Coke/Diet Coke/Coke Zero', price: 3.00, category: 'Drinks', image: '🥤' },
+  { id: '181', name: 'Sprite/Orange Fanta', price: 3.00, category: 'Drinks', image: '🥤' },
+  { id: '182', name: 'Root Beer/Lemonade', price: 3.00, category: 'Drinks', image: '🥤' },
+  { id: '183', name: 'Dr.Pepper', price: 3.00, category: 'Drinks', image: '🥤' },
+  { id: '184', name: 'Flavored Lemonade (No Refills)', price: 4.00, category: 'Drinks', image: '🍋' },
+  { id: '185', name: 'Strawberry', price: 4.00, category: 'Drinks', image: '🍓' },
+  { id: '186', name: 'Watermelon', price: 4.00, category: 'Drinks', image: '🍉' },
+  { id: '187', name: 'Blue', price: 4.00, category: 'Drinks', image: '🔵' },
+  { id: '188', name: 'Mango', price: 4.00, category: 'Drinks', image: '🥭' },
+  { id: '189', name: 'Dragon Fruit', price: 4.00, category: 'Drinks', image: '🐉' },
 ];
 
 export const PEPEBETOS_CATEGORIES = [
   'All',
-  'Botanas',
+  'Appetizers',
+  'Soups',
+  'Salads',
   'Tacos',
   'From The Grill',
   'Seafood',
-  'Enchiladas',
-  'Burritos',
-  'Quesadillas',
   'Specialties',
+  'Enchiladas',
+  'Vegetarian',
+  'Burritos',
+  'Lunch',
   'Kids',
-  'Sides',
+  'A La Carta',
+  'Extras',
   'Desserts',
   'Drinks'
 ];
