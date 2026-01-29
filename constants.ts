@@ -1,68 +1,156 @@
-import { MenuItem } from './types';
+import { MenuItem, MenuModifier } from './types';
 
-// PepeBetos Menu - Real menu from their restaurant
+// ==================== MODIFIERS ====================
+
+export const MEAT_TEMPERATURE: MenuModifier = {
+    id: 'meat-temp',
+    name: 'Meat Temperature',
+    required: false,
+    multiSelect: false,
+    options: [
+        { id: 'rare', name: 'Rare' },
+        { id: 'medium-rare', name: 'Medium Rare' },
+        { id: 'medium', name: 'Medium' },
+        { id: 'medium-well', name: 'Medium Well' },
+        { id: 'well-done', name: 'Well Done' }
+    ]
+};
+
+export const SPICE_LEVEL: MenuModifier = {
+    id: 'spice-level',
+    name: 'Spice Level',
+    required: false,
+    multiSelect: false,
+    options: [
+        { id: 'mild', name: 'Mild' },
+        { id: 'medium', name: 'Medium' },
+        { id: 'hot', name: 'Hot' },
+        { id: 'extra-hot', name: 'Extra Hot' }
+    ]
+};
+
+export const TORTILLA_TYPE: MenuModifier = {
+    id: 'tortilla-type',
+    name: 'Tortilla Type',
+    required: false,
+    multiSelect: false,
+    options: [
+        { id: 'flour', name: 'Flour (Harina)' },
+        { id: 'corn', name: 'Corn (Maíz)' }
+    ]
+};
+
+export const PROTEIN_CHOICE: MenuModifier = {
+    id: 'protein-choice',
+    name: 'Choose Your Protein',
+    required: true,
+    multiSelect: false,
+    options: [
+        { id: 'chicken', name: 'Chicken' },
+        { id: 'steak', name: 'Steak', priceModifier: 2.00 },
+        { id: 'carnitas', name: 'Carnitas (Pork)' },
+        { id: 'ground-beef', name: 'Ground Beef' }
+    ]
+};
+
+export const REMOVE_ITEMS: MenuModifier = {
+    id: 'remove-items',
+    name: 'Remove Items',
+    required: false,
+    multiSelect: true,
+    options: [
+        { id: 'no-onions', name: 'No Onions' },
+        { id: 'no-cilantro', name: 'No Cilantro' },
+        { id: 'no-tomatoes', name: 'No Tomatoes' }
+    ]
+};
+
+export const EXTRAS: MenuModifier = {
+    id: 'extras',
+    name: 'Add Extras',
+    required: false,
+    multiSelect: true,
+    options: [
+        { id: 'extra-cheese', name: 'Extra Cheese', priceModifier: 1.50 },
+        { id: 'guacamole', name: 'Add Guacamole', priceModifier: 2.00 }
+    ]
+};
+
+export const SIDES: MenuModifier = {
+    id: 'sides',
+    name: 'Choose Your Side',
+    required: true,
+    multiSelect: false,
+    options: [
+        { id: 'rice-beans', name: 'Rice & Beans' },
+        { id: 'fries', name: 'French Fries' }
+    ]
+};
+
+// ==================== PEPEBETOS MENU ====================
+
 export const PEPEBETOS_MENU: MenuItem[] = [
   // Botanas / Shareables
-  { id: '1', name: 'Queso Dip', price: 6.00, category: 'Botanas', image: '🧀' },
-  { id: '2', name: "Beto's Nachos", price: 12.00, category: 'Botanas', image: '🌮' },
-  { id: '3', name: 'Street Corn (Elote)', price: 6.00, category: 'Botanas', image: '🌽' },
-  { id: '4', name: 'Guacamole', price: 8.00, category: 'Botanas', image: '🥑' },
+  { id: '1', name: 'Queso Dip', price: 6.00, category: 'Botanas', image: '🧀', modifiers: [SPICE_LEVEL] },
+  { id: '2', name: "Beto's Nachos", price: 12.00, category: 'Botanas', image: '🌮', modifiers: [PROTEIN_CHOICE, EXTRAS, REMOVE_ITEMS] },
+  { id: '3', name: 'Street Corn (Elote)', price: 6.00, category: 'Botanas', image: '🌽', modifiers: [SPICE_LEVEL] },
+  { id: '4', name: 'Guacamole', price: 8.00, category: 'Botanas', image: '🥑', modifiers: [SPICE_LEVEL] },
   
-  // Tacos - Most Popular
-  { id: '5', name: 'Quesabirrias (3)', price: 18.00, category: 'Tacos', image: '🌮' },
-  { id: '6', name: 'Taco Carne Asada', price: 4.50, category: 'Tacos', image: '🌮' },
-  { id: '7', name: 'Cochinita Pibil Tacos', price: 4.50, category: 'Tacos', image: '🌮' },
-  { id: '8', name: 'Carnitas Tacos', price: 4.50, category: 'Tacos', image: '🌮' },
-  { id: '9', name: 'Birria Tacos (3)', price: 16.00, category: 'Tacos', image: '🌮' },
+  // Tacos
+  { id: '5', name: 'Quesabirrias (3)', price: 18.00, category: 'Tacos', image: '🌮', description: '#1 Most Liked!', modifiers: [TORTILLA_TYPE, SPICE_LEVEL, REMOVE_ITEMS, EXTRAS] },
+  { id: '6', name: 'Taco Carne Asada', price: 4.50, category: 'Tacos', image: '🌮', modifiers: [MEAT_TEMPERATURE, TORTILLA_TYPE, REMOVE_ITEMS, EXTRAS] },
+  { id: '7', name: 'Cochinita Pibil Tacos', price: 4.50, category: 'Tacos', image: '🌮', modifiers: [TORTILLA_TYPE, REMOVE_ITEMS, EXTRAS] },
+  { id: '8', name: 'Carnitas Tacos', price: 4.50, category: 'Tacos', image: '🌮', modifiers: [TORTILLA_TYPE, REMOVE_ITEMS, EXTRAS] },
+  { id: '9', name: 'Birria Tacos (3)', price: 16.00, category: 'Tacos', image: '🌮', modifiers: [TORTILLA_TYPE, SPICE_LEVEL, REMOVE_ITEMS, EXTRAS] },
   
   // From The Grill
-  { id: '10', name: 'Happy Plate', price: 16.00, category: 'From The Grill', image: '🥩' },
-  { id: '11', name: 'Chicken Fajitas', price: 18.00, category: 'From The Grill', image: '🍗' },
-  { id: '12', name: 'Steak Fajitas', price: 20.00, category: 'From The Grill', image: '🥩' },
-  { id: '13', name: 'Shrimp Fajitas', price: 22.00, category: 'From The Grill', image: '🍤' },
-  { id: '14', name: 'Parrillada (For Two)', price: 45.00, category: 'From The Grill', image: '🍖' },
-  { id: '15', name: 'Carnitas Plate', price: 16.00, category: 'From The Grill', image: '🍖' },
+  { id: '10', name: 'Happy Plate', price: 16.00, category: 'From The Grill', image: '🥩', description: '#2 Most Liked!', modifiers: [MEAT_TEMPERATURE, SIDES, TORTILLA_TYPE] },
+  { id: '11', name: 'Chicken Fajitas', price: 18.00, category: 'From The Grill', image: '🍗', modifiers: [SIDES, TORTILLA_TYPE, SPICE_LEVEL, REMOVE_ITEMS, EXTRAS] },
+  { id: '12', name: 'Steak Fajitas', price: 20.00, category: 'From The Grill', image: '🥩', modifiers: [MEAT_TEMPERATURE, SIDES, TORTILLA_TYPE, SPICE_LEVEL, REMOVE_ITEMS, EXTRAS] },
+  { id: '13', name: 'Shrimp Fajitas', price: 22.00, category: 'From The Grill', image: '🍤', modifiers: [SIDES, TORTILLA_TYPE, SPICE_LEVEL, REMOVE_ITEMS, EXTRAS] },
+  { id: '14', name: 'Parrillada (For Two)', price: 45.00, category: 'From The Grill', image: '🍖', modifiers: [MEAT_TEMPERATURE, SIDES, TORTILLA_TYPE, SPICE_LEVEL] },
+  { id: '15', name: 'Carnitas Plate', price: 16.00, category: 'From The Grill', image: '🍖', modifiers: [SIDES, TORTILLA_TYPE] },
   
   // Seafood
-  { id: '16', name: 'Camarones al Ajo', price: 18.00, category: 'Seafood', image: '🍤' },
-  { id: '17', name: 'Fish Tacos (3)', price: 14.00, category: 'Seafood', image: '🐟' },
-  { id: '18', name: 'Shrimp Cocktail', price: 16.00, category: 'Seafood', image: '🍤' },
+  { id: '16', name: 'Camarones al Ajo', price: 18.00, category: 'Seafood', image: '🍤', modifiers: [SPICE_LEVEL, SIDES] },
+  { id: '17', name: 'Fish Tacos (3)', price: 14.00, category: 'Seafood', image: '🐟', modifiers: [TORTILLA_TYPE, REMOVE_ITEMS, EXTRAS] },
+  { id: '18', name: 'Camarones Diabla', price: 18.00, category: 'Seafood', image: '🍤', modifiers: [SPICE_LEVEL, SIDES] },
   
   // Enchiladas
-  { id: '19', name: 'Enchiladas Bandera', price: 14.00, category: 'Enchiladas', image: '🫔' },
-  { id: '20', name: 'Enchiladas Verdes', price: 13.00, category: 'Enchiladas', image: '🫔' },
-  { id: '21', name: 'Enchiladas Rojas', price: 13.00, category: 'Enchiladas', image: '🫔' },
+  { id: '19', name: 'Enchiladas Bandera', price: 14.00, category: 'Enchiladas', image: '🫔', modifiers: [PROTEIN_CHOICE, SIDES, SPICE_LEVEL] },
+  { id: '20', name: 'Enchiladas Verdes', price: 13.00, category: 'Enchiladas', image: '🫔', modifiers: [SIDES, SPICE_LEVEL] },
+  { id: '21', name: 'Enchiladas Rojas', price: 13.00, category: 'Enchiladas', image: '🫔', modifiers: [PROTEIN_CHOICE, SIDES, SPICE_LEVEL] },
   
   // Burritos
-  { id: '22', name: 'Fajita Burrito', price: 14.00, category: 'Burritos', image: '🌯' },
-  { id: '23', name: 'Chimichanga', price: 13.00, category: 'Burritos', image: '🌯' },
-  { id: '24', name: 'Wet Burrito', price: 14.00, category: 'Burritos', image: '🌯' },
+  { id: '22', name: 'Fajita Burrito', price: 14.00, category: 'Burritos', image: '🌯', modifiers: [PROTEIN_CHOICE, SPICE_LEVEL, REMOVE_ITEMS, EXTRAS] },
+  { id: '23', name: 'Chimichanga', price: 13.00, category: 'Burritos', image: '🌯', modifiers: [PROTEIN_CHOICE, SIDES, REMOVE_ITEMS, EXTRAS] },
+  { id: '24', name: 'California Burrito', price: 15.00, category: 'Burritos', image: '🌯', modifiers: [PROTEIN_CHOICE, SPICE_LEVEL, REMOVE_ITEMS, EXTRAS] },
   
   // Quesadillas
-  { id: '25', name: 'Fajita Quesadilla', price: 16.00, category: 'Quesadillas', image: '🫓' },
-  { id: '26', name: 'Cheese Quesadilla', price: 10.00, category: 'Quesadillas', image: '🫓' },
+  { id: '25', name: 'Fajita Quesadilla', price: 16.00, category: 'Quesadillas', image: '🫓', modifiers: [PROTEIN_CHOICE, SPICE_LEVEL, REMOVE_ITEMS, EXTRAS] },
+  { id: '26', name: 'Cheese Quesadilla', price: 10.00, category: 'Quesadillas', image: '🫓', modifiers: [EXTRAS] },
   
   // Specialties
-  { id: '27', name: 'Chile Poblano', price: 15.00, category: 'Specialties', image: '🌶️' },
-  { id: '28', name: 'Torta Loca', price: 12.00, category: 'Specialties', image: '🥪' },
-  { id: '29', name: 'Fajita Taco Salad', price: 13.00, category: 'Salads', image: '🥗' },
+  { id: '27', name: 'Chile Poblano', price: 15.00, category: 'Specialties', image: '🌶️', modifiers: [SIDES, SPICE_LEVEL] },
+  { id: '28', name: 'Torta Loca', price: 12.00, category: 'Specialties', image: '🥪', modifiers: [PROTEIN_CHOICE, REMOVE_ITEMS, EXTRAS] },
+  { id: '29', name: 'Flautas (3)', price: 12.00, category: 'Specialties', image: '🌮', modifiers: [PROTEIN_CHOICE, SIDES] },
   
   // Kids Menu
-  { id: '30', name: 'Kids Taco Plate', price: 7.00, category: 'Kids', image: '🌮' },
-  { id: '31', name: 'Kids Quesadilla', price: 7.00, category: 'Kids', image: '🫓' },
+  { id: '30', name: 'Kids Taco Plate', price: 7.00, category: 'Kids', image: '🌮', modifiers: [PROTEIN_CHOICE, SIDES] },
+  { id: '31', name: 'Kids Quesadilla', price: 7.00, category: 'Kids', image: '🫓', modifiers: [SIDES] },
   { id: '32', name: 'Chicken Tenders', price: 7.00, category: 'Kids', image: '🍗' },
   
   // Sides
   { id: '33', name: 'Mexican Rice', price: 3.00, category: 'Sides', image: '🍚' },
   { id: '34', name: 'Refried Beans', price: 3.00, category: 'Sides', image: '🫘' },
   { id: '35', name: 'French Fries', price: 3.00, category: 'Sides', image: '🍟' },
-  { id: '36', name: 'Tortillas (3)', price: 1.50, category: 'Sides', image: '🫓' },
+  { id: '36', name: 'Tortillas (4)', price: 1.50, category: 'Sides', image: '🫓', modifiers: [TORTILLA_TYPE] },
   
-  // Desserts - Homemade with Love
+  // Desserts
   { id: '37', name: 'Nutella Banana Cheesecake Chimichanga', price: 8.00, category: 'Desserts', image: '🍰' },
   { id: '38', name: 'Flan', price: 6.00, category: 'Desserts', image: '🍮' },
   { id: '39', name: 'Churros', price: 6.00, category: 'Desserts', image: '🍩' },
-  { id: '40', name: 'Sopapillas', price: 5.00, category: 'Desserts', image: '🥐' },
+  { id: '40', name: 'Sopapillas', price: 6.00, category: 'Desserts', image: '🍩' },
   
   // Beverages
   { id: '41', name: 'Margarita on the Rocks', price: 8.00, category: 'Drinks', image: '🍹' },
@@ -73,26 +161,22 @@ export const PEPEBETOS_MENU: MenuItem[] = [
   { id: '46', name: 'Fountain Drink', price: 2.50, category: 'Drinks', image: '🥤' },
 ];
 
-// Default demo menu for other tenants
-export const MENU_ITEMS: MenuItem[] = [
-  { id: '1', name: 'Classic Burger', price: 12.99, category: 'Burgers', image: '🍔' },
-  { id: '2', name: 'Cheeseburger', price: 13.99, category: 'Burgers', image: '🍔' },
-  { id: '3', name: 'Caesar Salad', price: 9.99, category: 'Salads', image: '🥗' },
-  { id: '4', name: 'French Fries', price: 4.99, category: 'Sides', image: '🍟' },
-  { id: '5', name: 'Onion Rings', price: 5.99, category: 'Sides', image: '🧅' },
-  { id: '6', name: 'Grilled Chicken', price: 15.99, category: 'Entrees', image: '🍗' },
-  { id: '7', name: 'Steak', price: 24.99, category: 'Entrees', image: '🥩' },
-  { id: '8', name: 'Fish & Chips', price: 14.99, category: 'Seafood', image: '🐟' },
-  { id: '9', name: 'Pasta Alfredo', price: 13.99, category: 'Pasta', image: '🍝' },
-  { id: '10', name: 'Margherita Pizza', price: 11.99, category: 'Pizza', image: '🍕' },
-  { id: '11', name: 'Chocolate Cake', price: 6.99, category: 'Desserts', image: '🍰' },
-  { id: '12', name: 'Ice Cream', price: 4.99, category: 'Desserts', image: '🍦' },
-  { id: '13', name: 'Soda', price: 2.99, category: 'Drinks', image: '🥤' },
-  { id: '14', name: 'Coffee', price: 3.49, category: 'Drinks', image: '☕' },
-  { id: '15', name: 'Iced Tea', price: 2.99, category: 'Drinks', image: '🧋' },
+export const PEPEBETOS_CATEGORIES = [
+  'All',
+  'Botanas',
+  'Tacos',
+  'From The Grill',
+  'Seafood',
+  'Enchiladas',
+  'Burritos',
+  'Quesadillas',
+  'Specialties',
+  'Kids',
+  'Sides',
+  'Desserts',
+  'Drinks'
 ];
 
-// PepeBetos restaurant info
 export const PEPEBETOS_INFO = {
   id: 'pepebetos-001',
   name: 'Pepe Betos Mexican Kitchen & Cantina',
@@ -109,32 +193,12 @@ export const PEPEBETOS_INFO = {
     saturday: '11:00 AM - 9:40 PM'
   },
   branding: {
-    primaryColor: '#D32F2F', // Mexican Red
-    secondaryColor: '#FFA000', // Gold/Yellow
-    accentColor: '#388E3C' // Green
+    primaryColor: '#D32F2F',
+    secondaryColor: '#FFA000',
+    accentColor: '#388E3C'
   }
 };
 
-export const CATEGORIES = ['All', 'Burgers', 'Salads', 'Sides', 'Entrees', 'Seafood', 'Pasta', 'Pizza', 'Desserts', 'Drinks'];
-
-export const PEPEBETOS_CATEGORIES = [
-  'All',
-  'Botanas',
-  'Tacos',
-  'From The Grill',
-  'Seafood',
-  'Enchiladas',
-  'Burritos',
-  'Quesadillas',
-  'Specialties',
-  'Salads',
-  'Kids',
-  'Sides',
-  'Desserts',
-  'Drinks'
-];
-
-// Seat configuration
 export const SEATS = [
   { id: '1', label: 'Seat 1', icon: '1️⃣' },
   { id: '2', label: 'Seat 2', icon: '2️⃣' },
@@ -144,21 +208,19 @@ export const SEATS = [
   { id: '6', label: 'Seat 6', icon: '6️⃣' },
 ];
 
-// Mock tables data
 export const TABLES = [
   { id: '1', number: '1', status: 'available' as const },
-  { id: '2', number: '2', status: 'occupied' as const, guests: 4, time: '25m', amount: 45.50, server: 'Sarah' },
+  { id: '2', number: '2', status: 'occupied' as const },
   { id: '3', number: '3', status: 'available' as const },
-  { id: '4', number: '4', status: 'occupied' as const, guests: 2, time: '12m', amount: 23.00, server: 'Mike' },
-  { id: '5', number: '5', status: 'order-ready' as const, guests: 6, time: '45m', amount: 98.75, server: 'Sarah' },
+  { id: '4', number: '4', status: 'occupied' as const },
+  { id: '5', number: '5', status: 'available' as const },
   { id: '6', number: '6', status: 'available' as const },
-  { id: '7', number: '7', status: 'pay-requested' as const, guests: 3, time: '58m', amount: 67.25, server: 'Mike' },
+  { id: '7', number: '7', status: 'occupied' as const },
   { id: '8', number: '8', status: 'available' as const },
-  { id: '9', number: '9', status: 'occupied' as const, guests: 2, time: '8m', amount: 15.00, server: 'Emma' },
-  { id: '10', number: '10', status: 'cleaning' as const },
+  { id: '9', number: '9', status: 'occupied' as const },
+  { id: '10', number: '10', status: 'available' as const },
 ];
 
-// Mock tenants data for admin dashboard
 export const MOCK_TENANTS = [
   {
     id: 'pepebetos-001',
@@ -168,59 +230,21 @@ export const MOCK_TENANTS = [
     status: 'active' as const,
     mrr: 199,
     joinedDate: '2026-01-24'
-  },
-  {
-    id: 'demo-restaurant',
-    name: 'Demo Restaurant',
-    owner: 'John Smith',
-    email: 'john@demo.com',
-    status: 'active' as const,
-    mrr: 99,
-    joinedDate: '2026-01-15'
-  },
-  {
-    id: 'pizza-palace',
-    name: 'Pizza Palace',
-    owner: 'Maria Garcia',
-    email: 'maria@pizzapalace.com',
-    status: 'active' as const,
-    mrr: 149,
-    joinedDate: '2026-01-10'
   }
 ];
 
-// Mock KDS (Kitchen Display System) orders
 export const KDS_ORDERS = [
   {
     id: '1',
     table: '5',
+    waiterName: 'Maria',
     mode: 'Dine In',
     timer: '12:34',
     status: 'fresh' as const,
+    timestamp: new Date().toISOString(),
     items: [
       { name: 'Chicken Fajitas', qty: 2, mods: ['No onions', 'Extra cheese'] },
       { name: 'Steak Burrito', qty: 1, mods: ['Medium rare'] },
-    ]
-  },
-  {
-    id: '2',
-    table: '2',
-    mode: 'Dine In',
-    timer: '08:15',
-    status: 'warning' as const,
-    items: [
-      { name: 'Quesabirrias', qty: 3, mods: [] },
-      { name: 'Street Corn', qty: 2, mods: [] },
-    ]
-  },
-  {
-    id: '3',
-    table: 'Bar',
-    mode: 'Takeout',
-    timer: '15:42',
-    status: 'critical' as const,
-    items: [
-      { name: 'Happy Plate', qty: 1, mods: ['NO BEANS'], alert: 'ALLERGY' },
     ]
   }
 ];
