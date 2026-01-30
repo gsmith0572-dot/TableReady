@@ -265,7 +265,14 @@ export const PEPEBETOS_MENU: MenuItem[] = [
   { id: '186', name: 'Watermelon', price: 4.00, category: 'Drinks', image: '🍉' },
   { id: '187', name: 'Blue', price: 4.00, category: 'Drinks', image: '🔵' },
   { id: '188', name: 'Mango', price: 4.00, category: 'Drinks', image: '🥭' },
-  { id: '189', name: 'Dragon Fruit', price: 4.00, category: 'Drinks', image: '🐉' },
+  { id: "189", name: "Dragon Fruit", price: 4.00, category: "Drinks", image: "🐉" },
+  { id: "190", name: "Margarita (Strawberry)", price: 8.00, category: "Drinks", image: "🍹" },
+  { id: "191", name: "Margarita (Mango)", price: 8.00, category: "Drinks", image: "🍹" },
+  { id: "192", name: "Margarita (Lime Classic)", price: 8.00, category: "Drinks", image: "🍹" },
+  { id: "193", name: "Margarita (Peach)", price: 8.00, category: "Drinks", image: "🍹" },
+  { id: "194", name: "Mimosa (Orange)", price: 8.00, category: "Drinks", image: "🍊" },
+  { id: "195", name: "Mimosa (Strawberry)", price: 8.00, category: "Drinks", image: "🍓" },
+  { id: "196", name: "Mimosa (Mango)", price: 8.00, category: "Drinks", image: "🥭" },
 ];
 
 export const PEPEBETOS_CATEGORIES = [
@@ -359,3 +366,17 @@ export const KDS_ORDERS = [
     ]
   }
 ];
+
+// Adding new drink items to PEPEBETOS_MENU
+export const NEW_DRINKS: MenuItem[] = [
+  { id: '190', name: 'Margarita (Strawberry)', price: 8.00, category: 'Drinks', image: '🍹', modifiers: [] },
+  { id: '191', name: 'Margarita (Mango)', price: 8.00, category: 'Drinks', image: '🍹', modifiers: [] },
+  { id: '192', name: 'Margarita (Lime Classic)', price: 8.00, category: 'Drinks', image: '🍹', modifiers: [] },
+  { id: '193', name: 'Margarita (Peach)', price: 8.00, category: 'Drinks', image: '🍹', modifiers: [] },
+  { id: '194', name: 'Mimosa (Orange)', price: 8.00, category: 'Drinks', image: '🍊', modifiers: [] },
+  { id: '195', name: 'Mimosa (Strawberry)', price: 8.00, category: 'Drinks', image: '🍓', modifiers: [] },
+  { id: '196', name: 'Mimosa (Mango)', price: 8.00, category: 'Drinks', image: '🥭', modifiers: [] },
+];
+
+// Update PEPEBETOS_MENU to include new drinks
+// Note: In production, append to existing menu

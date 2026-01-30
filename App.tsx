@@ -4,6 +4,7 @@ import { OrderEntryScreen } from './OrderEntryScreen';
 import { KDSScreen } from './components/KDSScreen';
 import { AdminDashboard } from './components/AdminDashboard';
 import { LoginScreen } from './components/LoginScreen';
+import { RestaurantAdminDashboard } from "./components/RestaurantAdminDashboard";
 import { WaiterDashboard } from './components/WaiterDashboard';
 import { ActiveOrdersScreen } from './components/ActiveOrdersScreen';
 
@@ -13,7 +14,7 @@ const App: React.FC = () => {
       <Routes>
         <Route path="/" element={<LoginScreen />} />
         <Route path="/admin" element={<AdminDashboard />} />
-        <Route path="/restaurant-admin/:tenantId" element={<AdminDashboard />} />
+        <Route path="/restaurant-admin/:tenantId" element={<RestaurantAdminDashboard />} />
         <Route path="/waiter/:tenantId" element={<WaiterDashboard />} />
         <Route path="/waiter/:tenantId/active-orders" element={<ActiveOrdersScreen />} />
         <Route path="/waiter/:tenantId/table/:tableNumber" element={<OrderEntryScreen />} />
